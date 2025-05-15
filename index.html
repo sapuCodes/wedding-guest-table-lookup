@@ -351,17 +351,20 @@
       return name.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
     }
 
-    // Falling petals
-    const numberOfPetals = 30;
-    for (let i = 0; i < numberOfPetals; i++) {
-      const petal = document.createElement("div");
-      petal.className = "petal";
-      petal.style.left = Math.random() * 100 + "vw";
-      petal.style.animationDuration = (Math.random() * 3 + 2) + "s";
-      petal.style.fontSize = (Math.random() * 20 + 10) + "px";
-      petal.innerHTML = "❀";
-      document.body.appendChild(petal);
-    }
+// Falling petals, hearts, and ribbons
+const numberOfPetals = 30;
+const fallingItems = ["🌸", "❤️", "🌹"];
+
+for (let i = 0; i < numberOfPetals; i++) {
+  const petal = document.createElement("div");
+  petal.className = "petal";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  petal.style.fontSize = (Math.random() * 20 + 10) + "px";
+  petal.innerHTML = fallingItems[Math.floor(Math.random() * fallingItems.length)];
+  document.body.appendChild(petal);
+}
+
   </script>
 </body>
 </html>
