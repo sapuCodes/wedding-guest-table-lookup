@@ -5,280 +5,278 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Find Your Table – Wedding</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
-<style>
-  html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-}
-  body {
-  position: relative; /* Add this */
-  font-family: 'Roboto', sans-serif;
-  background-image: url('bg.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  background-size: cover;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-
-  body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.3); /* or use a darker overlay like rgba(0,0,0,0.3) */
-  pointer-events: none;
-  z-index: -1;
-}
-
-
-
-  h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 8vw;
-    color: #541d04;
-    margin-top: 40px;
-    animation: fadeInDown 1.2s ease;
-  }
-
-  p {
-    font-size: 1.2rem;
-    color: #000000;
-    margin-top: -10px;
-    padding: 0 10px;
-  }
-
-  .wrapper {
-  position: relative;
-  margin: 30px auto 0 auto;
-  width: 90%;
-  max-width: 350px; /* Reduced max-width for mobile */
-  text-align: center;
-}
-
-.content {
-  position: relative;
-  z-index: 1;
-}
-
-
-input[type="text"] {
- width: 100%;
-  max-width: 100%; /* Ensures no overflow */
-  box-sizing: border-box; /* Important to avoid overflow due to padding */
-}
-
-
-
-  input[type="text"] {
-    width: 100%;
-    padding: 14px;
-    border: 2px solid #d3a297;
-    border-radius: 10px;
-    font-size: 1rem;
-    outline: none;
-    transition: box-shadow 0.3s;
-  }
-
-  input[type="text"]:focus {
-    box-shadow: 0 0 10px rgba(193, 123, 123, 0.4);
-  }
-
-  #suggestions {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    max-height: 150px;
-    overflow-y: auto;
-    position: absolute;
-    width: 100%;
-    z-index: 999;
-  }
-
-  #suggestions div {
-    padding: 10px;
-    cursor: pointer;
-  }
-
-  #suggestions div:hover {
-    background-color: #ffe6ec;
-  }
-
-  .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1rem;
-    color: #252525;
-    background: #fff8f0;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
-    box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-  }
-
-  .button:hover {
-    background: rgb(248, 231, 193);
-    color: rgb(33, 0, 85);
-  }
-
-  .button:active {
-    transform: scale(0.97);
-  }
-
-  .hoverEffect {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-  }
-
-  .hoverEffect div {
-    background: linear-gradient(90deg, rgb(239, 102, 17) 0%, rgba(185, 115, 71) 49%, rgb(203, 82, 7) 100%);
-    border-radius: 40rem;
-    width: 10rem;
-    height: 10rem;
-    transition: 0.4s;
-    filter: blur(20px);
-    animation: effect infinite 3s linear;
-    opacity: 0.5;
-  }
-
-  .button:hover .hoverEffect div {
-    width: 8rem;
-    height: 8rem;
-  }
-
-  #result {
-    margin-top: 25px;
-    font-size: 1rem;
-    color: #4d3a3a;
-    font-weight: bold;
-    animation: fadeIn 1s ease;
-    padding: 0 10px;
-  }
-
-  .confetti {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    background: url('https://cdn.pixabay.com/photo/2023/05/30/10/10/wedding-8028145_1280.jpg');
-    opacity: 0.05;
-  }
-
-  .petal {
-    position: fixed;
-    top: -5vh;
-    color: pink;
-    z-index: 10;
-    animation: fall linear infinite;
-  }
-
-  @keyframes fall {
-    0% {
-      transform: translateY(0) rotate(0deg);
-      opacity: 1;
+  <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+      min-height: 100%;
     }
-    100% {
-      transform: translateY(110vh) rotate(360deg);
-      opacity: 0;
+    body {
+      position: relative;
+      font-family: 'Roboto', sans-serif;
+      background-image: url('bg.jpg');
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: center center;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
-  }
 
-  @keyframes effect {
-    0% {
-      transform: rotate(0deg);
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -2;
     }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* --- Responsive Tweaks --- */
-  @media (max-width: 600px) {
     h1 {
-      font-size: 2.2rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 8vw;
+      color: #541d04;
+      margin-top: 40px;
+      animation: fadeInDown 1.2s ease;
     }
 
     p {
-      font-size: 1rem;
+      font-size: 1.2rem;
+      color: #000000;
+      margin-top: -10px;
+      padding: 0 10px;
     }
 
     .wrapper {
-    max-width: 300px;
-  }
+      position: relative;
+      margin: 30px auto 0 auto;
+      width: 90%;
+      max-width: 350px;
+      text-align: center;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding: 14px;
+      border: 2px solid #d3a297;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      transition: box-shadow 0.3s;
+    }
+
+    input[type="text"]:focus {
+      box-shadow: 0 0 10px rgba(193, 123, 123, 0.4);
+    }
+
+    #suggestions {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      max-height: 150px;
+      overflow-y: auto;
+      position: absolute;
+      width: 100%;
+      z-index: 999;
+    }
+
+    #suggestions div {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #suggestions div:hover {
+      background-color: #ffe6ec;
+    }
 
     .button {
-      padding: 12px 20px;
-      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1rem;
+      color: #252525;
+      background: #fff8f0;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 0;
+      box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background: rgb(248, 231, 193);
+      color: rgb(33, 0, 85);
+    }
+
+    .button:active {
+      transform: scale(0.97);
+    }
+
+    .hoverEffect {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .hoverEffect div {
+      background: linear-gradient(90deg, rgb(239, 102, 17) 0%, rgba(185, 115, 71) 49%, rgb(203, 82, 7) 100%);
+      border-radius: 40rem;
+      width: 10rem;
+      height: 10rem;
+      transition: 0.4s;
+      filter: blur(20px);
+      animation: effect infinite 3s linear;
+      opacity: 0.5;
+    }
+
+    .button:hover .hoverEffect div {
+      width: 8rem;
+      height: 8rem;
     }
 
     #result {
-      font-size: 0.95rem;
+      margin-top: 25px;
+      font-size: 1rem;
+      color: #4d3a3a;
+      font-weight: bold;
+      animation: fadeIn 1s ease;
+      padding: 0 10px;
     }
-  }
-</style>
 
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background: url('https://cdn.pixabay.com/photo/2023/05/30/10/10/wedding-8028145_1280.jpg');
+      opacity: 0.05;
+    }
+
+    .petal {
+      position: fixed;
+      top: -5vh;
+      color: pink;
+      z-index: 10;
+      animation: fall linear infinite;
+    }
+
+    
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes effect {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      p { font-size: 1rem; }
+      .wrapper { max-width: 300px; }
+      .button { padding: 12px 20px; font-size: 0.9rem; }
+      #result { font-size: 0.95rem; }
+    }
+
+    .tagline {
+  color: white;
+  font-size: 1.0rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+
+  /* Text outline using multiple shadows (CSS stroke alternative) */
+  text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000,
+     2px  2px 6px rgba(0,0,0,0.5); /* real shadow */
+}
+
+
+
+    
+  </style>
 </head>
 <body>
 
-  <div class="content"></div>
-  <div class="confetti"></div>
-  <h1>Nimesh Weds Malithi</h1>
-  <p>Enter your name to discover your seat 🪑</p>
-  </div>
+  <div class="content">
+    <div class="confetti"></div>
+    <h1>Nimesh Weds Malithi</h1>
+    <p class="tagline">Enter your name to discover your seat 🪑</p>
 
-  <div class="wrapper">
-    <input type="text" id="guestName" placeholder="Your Name..." oninput="showSuggestions()" autocomplete="off" />
-    <div id="suggestions"></div>
-  </div>
 
-  <br>
-  <button class="button" onclick="findTable()">
-  Reveal My Table
-  <div class="hoverEffect">
-    <div></div>
-  </div>
-</button>
 
-  <div id="result"></div>
+    <div class="wrapper">
+      <input type="text" id="guestName" placeholder="Your Name..." oninput="showSuggestions()" autocomplete="off" />
+      <div id="suggestions"></div>
+    </div>
+
+    <br>
+    <button class="button" onclick="findTable()">
+      Reveal My Table
+      <div class="hoverEffect"><div></div></div>
+    </button>
+
+    <div id="result"></div>
+  </div>
 
   <script>
     const guestList = {
@@ -286,8 +284,7 @@ input[type="text"] {
       "Nimesh Yasitha": 5,
       "Malithi Athurliya": 5,
       "Dushan Maduranga": 1,
-      "Pasindu Harshana": 4,
-      // Add more guests here
+      "Pasindu Harshana": 4
     };
 
     const names = Object.keys(guestList);
@@ -316,64 +313,55 @@ input[type="text"] {
     function findTable() {
       const inputVal = document.getElementById("guestName").value.trim().toLowerCase();
       const result = document.getElementById("result");
-
       const originalName = names.find(n => n.toLowerCase() === inputVal);
 
-if (originalName) {
-  const tableNumber = guestList[originalName];
-  result.innerHTML = `🎉 Welcome <span style="color: #b45c5c;">${originalName}</span>, you’re at <strong>Table ${tableNumber}</strong>`;
-  result.style.cssText = `
-    background: rgba(255, 255, 255, 0.85);
-    padding: 16px;
-    border-radius: 12px;
-    max-width: 80%;
-    margin: 20px auto;
-    font-size: 18px;
-    color: #333;
-    text-align: center;
-    animation: fadeIn 1s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  `;
-} else {
-  result.textContent = "❌ We couldn’t find your name.";
-  result.style.cssText = `
-    background: rgba(255, 240, 240, 0.95);
-    color: #a94442;
-    padding: 16px;
-    border-radius: 12px;
-    max-width: 80%;
-    margin: 20px auto;
-    font-size: 18px;
-    text-align: center;
-    animation: fadeIn 1s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  `;
-}
-
-
+      if (originalName) {
+        const tableNumber = guestList[originalName];
+        result.innerHTML = `🎉 Welcome <span style="color: #b45c5c;">${originalName}</span>, you’re at <strong>Table ${tableNumber}</strong>`;
+        result.style.cssText = `
+          background: rgba(255, 255, 255, 0.85);
+          padding: 16px;
+          border-radius: 12px;
+          max-width: 80%;
+          margin: 20px auto;
+          font-size: 18px;
+          color: #333;
+          text-align: center;
+          animation: fadeIn 1s ease;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        `;
+      } else {
+        result.textContent = "❌ We couldn’t find your name.";
+        result.style.cssText = `
+          background: rgba(255, 240, 240, 0.95);
+          color: #a94442;
+          padding: 16px;
+          border-radius: 12px;
+          max-width: 80%;
+          margin: 20px auto;
+          font-size: 18px;
+          text-align: center;
+          animation: fadeIn 1s ease;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        `;
+      }
     }
 
     function capitalizeName(name) {
-      return name
-        .split(" ")
-        .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(" ");
+      return name.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    }
+
+    // Falling petals
+    const numberOfPetals = 30;
+    for (let i = 0; i < numberOfPetals; i++) {
+      const petal = document.createElement("div");
+      petal.className = "petal";
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      petal.style.fontSize = (Math.random() * 20 + 10) + "px";
+      petal.innerHTML = "❀";
+      document.body.appendChild(petal);
     }
   </script>
-  <script>
-  const numberOfPetals = 30;
-
-  for (let i = 0; i < numberOfPetals; i++) {
-    const petal = document.createElement("div");
-    petal.className = "petal";
-    petal.style.left = Math.random() * 100 + "vw";
-    petal.style.animationDuration = 5 + Math.random() * 5 + "s";
-    petal.style.fontSize = Math.random() * 16 + 10 + "px";
-    document.body.appendChild(petal);
-
-    petal.textContent = "🌸";
-  }
-</script>
-
 </body>
 </html>
