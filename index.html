@@ -195,6 +195,20 @@
     animation: 
     fadeInDown 1.2s ease forwards,
     glow 1.5s infinite alternate;
+    animation: wave 2s ease-in-out infinite;
+    display: inline-block;
+    
+    
+}
+.neon-text span{
+    font-size: 8vw;
+    text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    animation: 
+    fadeInDown 1.2s ease forwards,
+    glow 1.5s infinite alternate;
+    animation: wave 2s ease-in-out infinite;
+    display: inline-block;
+    margin: 0 5px; /* Adjust the value for more or less space */
 }
 
 #loader {
@@ -245,6 +259,35 @@
   font-size: 2rem;
   color: #c71585;
 }
+
+.wave-text span {
+    display: inline-block;
+    font-size: 4rem;
+    animation: wave 2s ease-in-out infinite;
+}
+
+.neon-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.neon-text span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.neon-text span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.neon-text span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
 
 @keyframes pulse {
   0% { transform: rotate(45deg) scale(1); }
@@ -335,10 +378,13 @@
   <p class="loader-text">Loading with love...</p>
 </div>
 
+
+<br><br>
   <div class="content">
     <div class="neon-container">
-    <h1 class="neon-text">Nimesh Weds Malithi</h1></div> <br><br><br>
+    <h1 class="neon-text"><span>Nimesh </span><span> Weds </span><span> Malithi</span></h1></div> <br><br>
     <p class="tagline">Enter your name to discover your seat 🪑</p>
+
 
 
 
