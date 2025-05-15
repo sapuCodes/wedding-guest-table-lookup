@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Find Your Table</title>
+  <title>Find Your Table – Wedding</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
 <style>
+  html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
   body {
     margin: 0;
     padding: 0;
@@ -35,11 +39,20 @@
   }
 
   .wrapper {
-    position: relative;
-    margin-top: 30px;
-    width: 90%;
-    max-width: 400px;
-  }
+  position: relative;
+  margin: 30px auto 0 auto;
+  width: 90%;
+  max-width: 350px; /* Reduced max-width for mobile */
+  text-align: center;
+}
+
+input[type="text"] {
+ width: 100%;
+  max-width: 100%; /* Ensures no overflow */
+  box-sizing: border-box; /* Important to avoid overflow due to padding */
+}
+
+
 
   input[type="text"] {
     width: 100%;
