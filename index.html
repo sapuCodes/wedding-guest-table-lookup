@@ -16,6 +16,7 @@
       overflow-x: hidden;
       min-height: 100%;
     }
+    
     body {
       position: relative;
       font-family: 'Roboto', sans-serif;
@@ -188,6 +189,21 @@
       z-index: 10;
       animation: fall linear infinite;
     }
+    .neon-text {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    animation: glow 1.5s infinite alternate;
+}
+​
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    }
+    100% {
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
+    }
+}
 
     
 
@@ -258,8 +274,8 @@
 <body>
 
   <div class="content">
-    <div class="confetti"></div>
-    <h1>Nimesh Weds Malithi</h1>
+    <div class="neon-container">
+    <h1 class="neon-text">Nimesh Weds Malithi</h1></div>
     <p class="tagline">Enter your name to discover your seat 🪑</p>
 
 
@@ -275,7 +291,7 @@
       <div class="hoverEffect"><div></div></div>
     </button>
 
-    <div id="result"></div>
+    <div id="result" ></div>
   </div>
 
   <script>
