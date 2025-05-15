@@ -7,20 +7,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
 <style>
   html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   overflow-x: hidden;
-  max-width: 100%;
 }
   body {
-    margin: 0;
-    padding: 0;
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    overflow-x: hidden;
-    text-align: center;
+  background-image: url('bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* Remove inline style from body tag */
   }
 
   h1 {
@@ -234,15 +239,7 @@ input[type="text"] {
 </style>
 
 </head>
-<body style="
-  background-image: url('bg.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  padding: 0;
-">
+<body>
 
   <div class="confetti"></div>
   <h1>Nimesh Weds Malithi</h1>
