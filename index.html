@@ -169,6 +169,7 @@
       animation: fadeIn 1s ease;
       padding: 0 10px;
     }
+    
 
     .confetti {
       position: fixed;
@@ -402,76 +403,166 @@
     </button>
 
     <div id="result" ></div>
+    <br>
+    <div id="result2"></div>
   </div>
 
   <script>
-    const guestList = {
-      "Sapumal Prasanna": 3,
-      "Nimesh Yasitha": 5,
-      "Malithi Athurliya": 5,
-      "Dushan Maduranga": 1,
-      "Pasindu Harshana": 4
-    };
+    // Array of tables, each table is an array of guest names
+const tables = [
+  [ "Sapumal Prasanna", "Nimesh Yasitha", "Malithi Athuraliya", "Dushan Maduranga", "Pasindu Harshana", "Mahinda Rajapakse", "Ranil Wickramasinghe", "Kathrina Kaif", "Piyath Rajapakse", "Arijit Singh" ], // Table 1
+   [ "Elon Musk", "Oprah Winfrey", "Leonardo DiCaprio", "Angelina Jolie", "Bill Gates", "Taylor Swift", "Serena Williams", "Barack Obama", "Emma Watson", "Cristiano Ronaldo" ], // Table 2
+  [ /* Table 3 guests here */ ],
+  // ... up to Table 15
+];
 
-    const names = Object.keys(guestList);
+// Flatten guest list for suggestions and validation
+const names = tables.flat();
 
-    function showSuggestions() {
-      const input = document.getElementById("guestName");
-      const suggestionsBox = document.getElementById("suggestions");
-      const query = input.value.trim().toLowerCase();
+function capitalizeName(name) {
+  return name.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+}
+
+function showSuggestions() {
+  const input = document.getElementById("guestName");
+  const suggestionsBox = document.getElementById("suggestions");
+  const query = input.value.trim().toLowerCase();
+  suggestionsBox.innerHTML = "";
+
+  if (!query) return;
+
+  const matches = names.filter(name => name.toLowerCase().includes(query)).slice(0, 5);
+
+  matches.forEach(match => {
+    const div = document.createElement("div");
+    div.textContent = capitalizeName(match);
+    div.onclick = () => {
+      input.value = capitalizeName(match);
       suggestionsBox.innerHTML = "";
+    };
+    suggestionsBox.appendChild(div);
+  });
+}
 
-      if (!query) return;
+function findTable() {
+  const inputVal = document.getElementById("guestName").value.trim().toLowerCase();
+  const result = document.getElementById("result");
+  const result2 = document.getElementById("result2");
+  
+  result.innerHTML = "";
+  result2.innerHTML = "";
 
-      const matches = names.filter(name => name.toLowerCase().includes(query)).slice(0, 5);
-
-      matches.forEach(match => {
-        const div = document.createElement("div");
-        div.textContent = capitalizeName(match);
-        div.onclick = () => {
-          input.value = capitalizeName(match);
-          suggestionsBox.innerHTML = "";
-        };
-        suggestionsBox.appendChild(div);
-      });
+  // Find guest and their table number
+  let tableNumber = null;
+  let originalName = null;
+  
+  for (let i = 0; i < tables.length; i++) {
+    const table = tables[i];
+    const foundName = table.find(name => name.toLowerCase() === inputVal);
+    if (foundName) {
+      tableNumber = i + 1; // Table numbers start at 1
+      originalName = foundName;
+      break;
     }
+  }
 
-    function findTable() {
-      const inputVal = document.getElementById("guestName").value.trim().toLowerCase();
-      const result = document.getElementById("result");
-      const originalName = names.find(n => n.toLowerCase() === inputVal);
+  if (originalName) {
+    // Main result (your table number)
+    result.innerHTML = `
+      🎉 Welcome <span style="color: #b45c5c; font-weight: bold;">${originalName}</span>, you’re at 
+      <strong>Table ${tableNumber}</strong>
+    `;
+    result.style.cssText = `
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(6px);
+      padding: 28px;
+      border-radius: 20px;
+      max-width: 90%;
+      margin: 24px auto;
+      font-size: 18px;
+      color: #333;
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      font-family: 'Segoe UI', sans-serif;
+    `;
 
-      if (originalName) {
-        const tableNumber = guestList[originalName];
-        result.innerHTML = `🎉 Welcome <span style="color: #b45c5c;">${originalName}</span>, you’re at <strong>Table ${tableNumber}</strong>`;
-        result.style.cssText = `
-          background: rgba(255, 255, 255, 0.85);
-          padding: 16px;
-          border-radius: 12px;
-          max-width: 80%;
-          margin: 20px auto;
-          font-size: 18px;
-          color: #333;
-          text-align: center;
-          animation: fadeIn 1s ease;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        `;
-      } else {
-        result.textContent = "❌ We couldn’t find your name.";
-        result.style.cssText = `
-          background: rgba(255, 240, 240, 0.95);
-          color: #a94442;
-          padding: 16px;
-          border-radius: 12px;
-          max-width: 80%;
-          margin: 20px auto;
-          font-size: 18px;
-          text-align: center;
-          animation: fadeIn 1s ease;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        `;
-      }
+    // Other guests at the table excluding originalName
+    const othersAtTable = tables[tableNumber - 1]
+      .filter(name => name.toLowerCase() !== inputVal)
+      .map(capitalizeName);
+
+    if (othersAtTable.length > 0) {
+      result2.innerHTML = `
+        <div style="
+          backdrop-filter: blur(8px);
+          padding: 20px;
+          border-radius: 16px;
+          max-width: 650px;
+          margin: 0 auto 24px auto;
+          border: 2px solid #d4af37;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        ">
+          <table style="
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Segoe UI', sans-serif;
+          ">
+            <thead>
+              <tr style="background-color: #fff8e1;">
+                <th style="
+                  padding: 12px 16px;
+                  font-size: 16px;
+                  font-weight: bold;
+                  border-bottom: 2px solid #d4af37;
+                  color: #b38200;
+                  text-align: center;
+                ">Sharing Your Table:</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${othersAtTable.map(name => `
+                <tr>
+                  <td style="
+                    padding: 12px 16px;
+                    border-bottom: 1px solid #f3e5ab;
+                    font-size: 15px;
+                    color: #444;
+                  ">${name}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    } else {
+      result2.innerHTML = `
+        <div style="margin-top: 24px; font-style: italic; color: #666;">
+          🪑 You're currently the only one listed at this table.
+        </div>
+      `;
     }
+  } else {
+    result.textContent = "❌ We couldn’t find your name.";
+    result.style.cssText = `
+      background: rgba(255, 240, 240, 0.8);
+      backdrop-filter: blur(5px);
+      color: #a94442;
+      padding: 16px;
+      border-radius: 12px;
+      max-width: 80%;
+      margin: 20px auto;
+      font-size: 18px;
+      text-align: center;
+      animation: fadeIn 1s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    `;
+  }
+}
+
+
+
+
 
     function capitalizeName(name) {
       return name.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
